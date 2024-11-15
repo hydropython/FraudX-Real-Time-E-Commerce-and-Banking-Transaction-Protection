@@ -83,11 +83,7 @@ Before you begin, ensure you have the following tools installed:
     ├── README.md                # Project documentation
     └── Dockerfile               # Docker configuration for deployment
 
-
-## Contributing
-We welcome contributions to improve fraud detection models and expand the capabilities of this project. Please follow these steps to contribute:
-
-## Fork the repository.
+Fork the repository.
 Create a new branch (git checkout -b feature-name).
 Make your changes and commit them (git commit -am 'Add new feature').
 Push to your forked repository (git push origin feature-name).
