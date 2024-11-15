@@ -58,8 +58,30 @@ Before you begin, ensure you have the following tools installed:
    python run.py
 
 ## Project Structure
+   ```bash
 
-FraudX-Real-Time-E-Commerce-and-Banking-Transaction-Protection/ │ ├── data/ # Raw data files (CSV, JSON, etc.) │ ├── raw/ # Raw transaction data │ └── processed/ # Cleaned and processed data │ ├── notebooks/ # Jupyter notebooks for EDA and experiments │ ├── fraud_detection_eda.ipynb # Exploratory Data Analysis │ └── fraud_detection_model.ipynb # Model training and evaluation │ ├── src/ # Source code for model building and deployment │ ├── model/ # Machine learning model scripts │ ├── preprocessing/ # Data preprocessing and feature engineering │ ├── deployment/ # Flask app and Docker setup │ └── utils/ # Utility functions for model training and evaluation │ ├── tests/ # Unit tests for code validation │ ├── requirements.txt # List of project dependencies ├── .gitignore # Files and folders to ignore in Git ├── README.md # Project documentation └── Dockerfile # Docker configuration for deployment
+    FraudX-Real-Time-E-Commerce-and-Banking-Transaction-Protection/
+    │
+    ├── data/                    # Raw data files (CSV, JSON, etc.)
+    │   ├── raw/                 # Raw transaction data
+    │   └── processed/           # Cleaned and processed data
+    │
+    ├── notebooks/               # Jupyter notebooks for EDA and experiments
+    │   ├── fraud_detection_eda.ipynb  # Exploratory Data Analysis
+    │   └── fraud_detection_model.ipynb  # Model training and evaluation
+    │
+    ├── src/                     # Source code for model building and deployment
+    │   ├── model/               # Machine learning model scripts
+    │   ├── preprocessing/       # Data preprocessing and feature engineering
+    │   ├── deployment/          # Flask app and Docker setup
+    │   └── utils/               # Utility functions for model training and evaluation
+    │
+    ├── tests/                   # Unit tests for code validation
+    │
+    ├── requirements.txt         # List of project dependencies
+    ├── .gitignore               # Files and folders to ignore in Git
+    ├── README.md                # Project documentation
+    └── Dockerfile               # Docker configuration for deployment
 
 
 ## Contributing
