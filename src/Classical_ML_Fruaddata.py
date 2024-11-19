@@ -194,3 +194,34 @@ class FraudModelingPipeline:
         
         mlflow.log_artifact(lime_img_path)
         os.remove(lime_img_path)
+    def shap_force_plot(self, instance_index=0):
+        """
+        Generates a SHAP force plot for a specific instance and displays it using Matplotlib.
+        
+        Args:
+        - instance_index (int): The index of the instance to visualize (default is 0).
+        """
+        # Check if the gradient boosting model has been trained
+        if not hasattr(self, 'gradient_boosting_model'):
+            raise AttributeError("The model is not trained. Please train the model by running `train_models()` first.")
+        
+        # Initialize the SHAP explainer for the gradient boosting model
+        explainer = shap.TreeExplainer(self.gradient_boosting_model)
+
+        # Calculate SHAP values for the test set
+        shap_values = explainer.shap_values(self.X_test)
+
+        # Determine SHAP values and expected value based on binary or multiclass model
+        if isinstance(shap_values, list) and len(shap_values) > 1:  # Binary classification
+            shap_values_class = shap_values[1]  # SHAP values for the positive class
+            expected_value = explainer.expected_value[1]
+        else:  # Multiclass or regression
+            shap_values_class = shap_values
+            expected_value = explainer.expected_value
+
+        # Generate the SHAP force plot for the specific instance
+        shap.initjs()  # Initialize JavaScript for interactive SHAP plots
+        force_plot = shap.force_plot(expected_value, shap_values_class[instance_index], self.X_test.iloc[instance_index], matplotlib=True)
+
+        # Display the force plot as a Matplotlib figure
+        plt.show()
